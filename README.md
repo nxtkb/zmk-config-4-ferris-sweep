@@ -45,14 +45,14 @@ Chinese docs are also available:
 
 ## Pinned Dependencies
 
-[![ZMK revision](https://img.shields.io/badge/zmk-8feeb52-5f6fbf?style=flat-square)](https://github.com/zmkfirmware/zmk/tree/8feeb52)
+[![ZMK revision](https://img.shields.io/badge/zmk-5fb1f293-5f6fbf?style=flat-square)](https://github.com/nxtkb/zmk/tree/5fb1f293caeffce2eb1637e03905ae1336b9e291)
 [![zmk-behavior-report revision](https://img.shields.io/badge/zmk--behavior--report-476f43da-2f6f6f?style=flat-square)](https://github.com/nxtkb/zmk-behavior-report/tree/476f43da1f98b4a6150c9c0e499a257bd64a29a0)
 
 The firmware build is pinned through `config/west.yml`:
 
 | Project | Remote | Revision |
 | :--- | :--- | :--- |
-| `zmk` | `zmkfirmware/zmk` | `8feeb52` |
+| `zmk` | `nxtkb/zmk` | `5fb1f293caeffce2eb1637e03905ae1336b9e291` |
 | `zmk-behavior-report` | `nxtkb/zmk-behavior-report` | `476f43da1f98b4a6150c9c0e499a257bd64a29a0` |
 
 ## Firmware and Keymap Workflow
@@ -75,15 +75,13 @@ The keymap includes a conditional Codex layer for the left half. The public
 GitHub Actions workflow builds the left firmware with USB and Bluetooth Codex
 transports and builds the right half as a normal split peripheral.
 
-The workflow explicitly applies the module's official-ZMK compatibility
-patch through `west patch` before compiling; `west update` and `west build` do
-not apply Zephyr module patches on their own. For local west-managed builds, run
-`west patch -sm zmk-feature-codex-micro apply` once before building. The right
-half continues to use the normal firmware. Release builds enable the module's
-minimal compatibility identity, which changes only USB VID/PID and Bluetooth
-PnP VID/PID; user-visible keyboard names remain configurable. These identifiers
-do not imply OpenAI certification, and the undocumented discovery behavior may
-change in future ChatGPT releases.
+The pinned `nxtkb/zmk` revision contains the USB HID interrupt-OUT support
+required by the module, so no separate patch step is needed. The right half
+continues to use the normal firmware. Release builds enable the module's minimal
+compatibility identity, which changes only USB VID/PID and Bluetooth PnP VID/PID;
+user-visible keyboard names remain configurable. These identifiers do not imply
+OpenAI certification, and the undocumented discovery behavior may change in
+future ChatGPT releases.
 
 ## Keymap Summary
 

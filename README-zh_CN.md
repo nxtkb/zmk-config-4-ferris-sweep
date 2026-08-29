@@ -42,14 +42,14 @@
 
 ## 固定依赖
 
-[![ZMK revision](https://img.shields.io/badge/zmk-8feeb52-5f6fbf?style=flat-square)](https://github.com/zmkfirmware/zmk/tree/8feeb52)
+[![ZMK revision](https://img.shields.io/badge/zmk-5fb1f293-5f6fbf?style=flat-square)](https://github.com/nxtkb/zmk/tree/5fb1f293caeffce2eb1637e03905ae1336b9e291)
 [![zmk-behavior-report revision](https://img.shields.io/badge/zmk--behavior--report-476f43da-2f6f6f?style=flat-square)](https://github.com/nxtkb/zmk-behavior-report/tree/476f43da1f98b4a6150c9c0e499a257bd64a29a0)
 
 固件构建依赖由 `config/west.yml` 固定：
 
 | 项目 | 远端 | Revision |
 | :--- | :--- | :--- |
-| `zmk` | `zmkfirmware/zmk` | `8feeb52` |
+| `zmk` | `nxtkb/zmk` | `5fb1f293caeffce2eb1637e03905ae1336b9e291` |
 | `zmk-behavior-report` | `nxtkb/zmk-behavior-report` | `476f43da1f98b4a6150c9c0e499a257bd64a29a0` |
 
 ## 固件和改键流程
@@ -72,11 +72,10 @@
 GitHub Actions workflow 会为左手构建同时支持 USB 和蓝牙 Codex 的固件，右手仍构建为
 普通 split peripheral。
 
-workflow 会在编译前通过 `west patch` 显式应用模块声明的官方 ZMK 兼容补丁；
-`west update` 和 `west build` 本身不会自动应用 Zephyr module patch。本地使用 west 管理的
-workspace 时，也应先执行一次 `west patch -sm zmk-feature-codex-micro apply`。发布固件会启用
-模块的最小兼容身份，只修改 USB VID/PID 和蓝牙 PnP VID/PID；用户可见的键盘名称仍可配置。
-这些标识符不代表 OpenAI 认证，且 ChatGPT 未公开的发现机制未来可能变化。
+固定的 `nxtkb/zmk` revision 已包含模块所需的 USB HID interrupt-OUT 支持，不再需要
+单独应用 patch。发布固件会启用模块的最小兼容身份，只修改 USB VID/PID 和蓝牙 PnP
+VID/PID；用户可见的键盘名称仍可配置。这些标识符不代表 OpenAI 认证，且 ChatGPT
+未公开的发现机制未来可能变化。
 
 ## 键位摘要
 
