@@ -42,14 +42,14 @@
 
 ## 固定依赖
 
-[![ZMK revision](https://img.shields.io/badge/zmk-5fb1f293-5f6fbf?style=flat-square)](https://github.com/nxtkb/zmk/tree/5fb1f293caeffce2eb1637e03905ae1336b9e291)
+[![ZMK revision](https://img.shields.io/badge/zmk-b66b8b4e-5f6fbf?style=flat-square)](https://github.com/nxtkb/zmk/tree/b66b8b4e07655d16c01d14bfa06e2f7f6c46025f)
 [![zmk-behavior-report revision](https://img.shields.io/badge/zmk--behavior--report-476f43da-2f6f6f?style=flat-square)](https://github.com/nxtkb/zmk-behavior-report/tree/476f43da1f98b4a6150c9c0e499a257bd64a29a0)
 
 固件构建依赖由 `config/west.yml` 固定：
 
 | 项目 | 远端 | Revision |
 | :--- | :--- | :--- |
-| `zmk` | `nxtkb/zmk` | `5fb1f293caeffce2eb1637e03905ae1336b9e291` |
+| `zmk` | `nxtkb/zmk` | `b66b8b4e07655d16c01d14bfa06e2f7f6c46025f` |
 | `zmk-behavior-report` | `nxtkb/zmk-behavior-report` | `476f43da1f98b4a6150c9c0e499a257bd64a29a0` |
 
 ## 固件和改键流程
